@@ -1,0 +1,5 @@
+{
+    "/test.md": "Test1",
+    "/test2.md": "Test2",
+    "/dir/nested.md": "Hello Nested"
+}
