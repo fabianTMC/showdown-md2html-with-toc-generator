@@ -1,5 +1,6 @@
 var path = require('path');
 var fs = require('fs');
+var showdown = require('showdown');
 
 const template = fs.readFileSync("./config/templates/file-template.html").toString();
 const tocTemplate = fs.readFileSync("./config/templates/toc-template.html").toString();
@@ -21,8 +22,7 @@ function fromDir(startPath, filter, srcPath, distPath, fileList = {md: [], html:
             let htmlName = filename.substr(0, filename.length - filter.length) + '.html';
             htmlName = distPath + htmlName.substr(path.join(srcPath).length);
 
-            var showdown = require('showdown'),
-                converter = new showdown.Converter(),
+                var converter = new showdown.Converter(),
                 text = fs.readFileSync(filename).toString(),
                 html = converter.makeHtml(text);
 
